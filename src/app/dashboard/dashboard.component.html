@@ -1,3 +1,49 @@
-<p>
-  dashboard works!
-</p>
+<div class="container">
+	<h2>Book Finder</h2>
+	<div class="well">
+		<form>
+			<table>
+				<thead>
+					<th>
+					<input type="number" name="id" 
+					[(ngModel)]="filter.id" placeholder="Id">
+					</th>
+					<th>
+						<input type="text" name="title" 
+						[(ngModel)]=filter.title placeholder="Title">
+					</th>
+					<th>
+						<input type="text" name="author"
+						[(ngModel)]="filter.author" placeholder="Author">
+					</th>
+					<th>
+						<input type="number" name="year"
+						[(ngModel)]="filter.year" placeholder="Year">
+					</th>
+				</thead>
+				<tfoot>
+					<tr>
+						<td colspan="4">
+
+							<label for="limit">Limit: </label>
+							<input type="number" name="limit"
+							([ngModel])="limit" placeholder="Limit">
+
+							<label for="page">Page: </label>
+							<input type="number" name="page" 
+							[(ngModel)]="page" placeholder="Page">
+						</td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr *ngFor="let book of books">
+						<td>{{book.id}}</td>
+						<td>{{book.title}}</td>
+						<td>{{book.author}}</td>
+						<td>{{book.year}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
