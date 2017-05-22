@@ -1,0 +1,12 @@
+#flyingFormControls {
+	margin-bottom: 4%;
+	margin-top: 2%;
+}
+
+#canFlyLabel, #mutateArrayBtn, #mutateArrayLabel {
+	background-color: #eee;
+}
+
+#resetBtn {
+	margin-left: 2%;
+}

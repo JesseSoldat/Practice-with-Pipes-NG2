@@ -1,9 +1,73 @@
+<div class="container">
 <div class="page-header">
 	<h2>Heroes from JSON File</h2>
 	<hr>
 	<div class="well">
-		<div *ngFor="let hero of ('assets/heroes.json' | fetch)">
-			{{hero.name}}
-		</div>
+		<ul class="list-group">
+			<li *ngFor="let hero of ('assets/heroes.json' | fetch)"
+			class="list-group-item">
+				{{hero.name}}
+			</li>
+		</ul>
+		
 	</div>
 </div>
+
+<div class="page-header">
+	<h2>Flying Heroes</h2>
+	<hr>
+	<div class="row">
+  <div class="col-xs-12" id="flyingFormControls">
+    <div class="input-group pull-left col-xs-5" >
+      <input type="text" [(ngModel)]="hero"
+      (keyup.enter)="addHero()" 
+      class="form-control" 
+      aria-label="hero"
+      placeholder="hero name">
+      <span class="input-group-addon">
+      	<label class="checkbox-inline" id="canFlyLabel">
+        <input type="checkbox" aria-label="can-fly"
+        id="mutate" [(ngModel)]="canFly">Can Fly</label>
+      </span>
+    </div><!-- /input-group -->
+   	<div class="input-group pull-right col-xs-5">
+	     <button class="btn btn-default" id="mutateArrayBtn">
+	     		<label class="checkbox-inline" id="mutateArrayLabel">
+	     		<input type="checkbox" [(ngModel)]="mutate">Mutate Array</label>
+	     	</button>
+	    <button class="btn btn-danger" id="resetBtn" (click)="reset()">Reset</button>
+	  </div>
+    
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+<div class="well clearfix">
+	<h4>Heroes who fly (pure pipe)</h4>
+	<ul class="list-group">
+		<li class="list-group-item" 
+		*ngFor="let hero of (heroes | flyingHeroes)">
+			{{hero.name}}
+		</li>
+	</ul>
+	<hr>
+</div>
+<div class="well clearfix">
+	<h4>Heroes who fly (impure pipe)</h4>
+	<ul class="list-group">
+		<li class="list-group-item" 
+		*ngFor="let hero of (heroes | flyingHeroesImpure)">
+			{{hero.name}}
+		</li>
+	</ul>
+	<hr>
+</div>
+<div class="well clearfix">
+	<h4>All Heroes (no pipe)</h4>
+	<ul class="list-group">
+		<li class="list-group-item"
+		*ngFor="let hero of heroes">
+			{{hero.name}}
+		</li>
+	</ul>
+</div>
+</div> <!-- page header -->
+</div> <!-- .container -->

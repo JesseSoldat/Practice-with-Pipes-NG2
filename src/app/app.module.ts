@@ -10,6 +10,7 @@ import { ExamplesComponent } from './examples/examples.component';
 //Pipes
 import { BookFilterPipe } from '../pipes/book.pipe';
 import { FetchJsonPipe } from '../pipes/fetch-json.pipe';
+import { FlyingHeroesPipe, FlyingHeroesImpurePipe } from '../pipes/flying-heroes.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent},
@@ -22,7 +23,9 @@ const appRoutes: Routes = [
     DashboardComponent,
     ExamplesComponent,
     BookFilterPipe,
-    FetchJsonPipe
+    FetchJsonPipe,
+    FlyingHeroesPipe,
+    FlyingHeroesImpurePipe
   ],
   imports: [
     BrowserModule,
