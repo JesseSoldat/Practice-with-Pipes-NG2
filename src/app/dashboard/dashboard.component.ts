@@ -13,13 +13,13 @@ export class DashboardComponent implements OnInit {
 	limit: number;
 	numberOfBooks: number;
 	page: number = 1;
-	// input: string = 'test';
+	maxYear: number = 2017;
+	minYear: number = 1996;
 
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
   	this.bookService.getBooks().subscribe((books: Book[]) => {
-  		// console.log(books);
   		this.books = books;
   		this.numberOfBooks = this.books.length;
   		this.limit = this.books.length;
