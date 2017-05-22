@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookService } from '../services/book';
-
+import { BookFilterPipe } from '../pipes/book.pipe';
 const appRoutes: Routes = [
   {path: '', component: DashboardComponent}
 ];
@@ -15,6 +15,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
+    BookFilterPipe
   ],
   imports: [
     BrowserModule,

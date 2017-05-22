@@ -5,7 +5,7 @@
 			<table>
 				<thead>
 					<th>
-					<input type="number" name="id" 
+					<input type="number" name="id" step="1" min="1" 
 					[(ngModel)]="filter.id" placeholder="Id">
 					</th>
 					<th>
@@ -17,7 +17,7 @@
 						[(ngModel)]="filter.author" placeholder="Author">
 					</th>
 					<th>
-						<input type="number" name="year"
+						<input type="number" name="year" step="1" 
 						[(ngModel)]="filter.year" placeholder="Year">
 					</th>
 				</thead>
@@ -27,7 +27,8 @@
 
 							<label for="limit">Limit: </label>
 							<input type="number" name="limit"
-							([ngModel])="limit" placeholder="Limit">
+							[(ngModel)]="limit" placeholder="Limit"
+							min="1" [attr.max]="[numberOfBooks]" step="1">
 
 							<label for="page">Page: </label>
 							<input type="number" name="page" 
@@ -36,7 +37,7 @@
 					</tr>
 				</tfoot>
 				<tbody>
-					<tr *ngFor="let book of books">
+					<tr *ngFor="let book of books | bookfilter:filter">
 						<td>{{book.id}}</td>
 						<td>{{book.title}}</td>
 						<td>{{book.author}}</td>
@@ -44,6 +45,7 @@
 					</tr>
 				</tbody>
 			</table>
+
 		</form>
 	</div>
 </div>
