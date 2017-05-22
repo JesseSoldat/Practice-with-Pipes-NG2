@@ -11,6 +11,7 @@ export class BookFilterPipe implements PipeTransform {
 		if(!items || !filter) {
 			return items;
 		}
+
 		return items.filter((item: Book) => this.applyFilter(item, filter));
 	}
 
@@ -18,10 +19,16 @@ export class BookFilterPipe implements PipeTransform {
 		for(let field in filter) {
 			if(filter[field]) {
 				if(typeof filter[field] === 'string') {
+					//console.log(book[field]); //A Game of Thrones  
+					//console.log(filter[field]);//A Game
 					if(book[field].toLowerCase().indexOf(filter[field].toLowerCase()) === -1) {
+						//look inside of book[field] each time a character is typed and if all characters 
+						//match return 1 (true) (book is returned)
+						//if a character is not found in book[field] return -1 (book is not returned)
 						return false;
 					}
 				} else if(typeof filter[field] === 'number') {
+					//numbers have to be exact
 					if(book[field] != filter[field]) {
 						return false;
 					}

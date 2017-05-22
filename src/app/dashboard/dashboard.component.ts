@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
   		this.books = books;
   		this.numberOfBooks = this.books.length;
   		this.limit = this.books.length;
+     
   	})
   }
 

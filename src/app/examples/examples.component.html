@@ -1,0 +1,9 @@
+<div class="page-header">
+	<h2>Heroes from JSON File</h2>
+	<hr>
+	<div class="well">
+		<div *ngFor="let hero of ('assets/heroes.json' | fetch)">
+			{{hero.name}}
+		</div>
+	</div>
+</div>

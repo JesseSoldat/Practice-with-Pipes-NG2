@@ -51,7 +51,7 @@
 					</tr>
 				</tfoot>
 				<tbody>
-					<tr *ngFor="let book of books | bookfilter:filter | slice:(page-1)*limit:page*limit">
+					<tr *ngFor="let book of books | bookfilter:filter | slice:(page -1)*limit:page*limit">
 						<td>{{book.id}}</td>
 						<td>{{book.title}}</td>
 						<td>{{book.author}}</td>
